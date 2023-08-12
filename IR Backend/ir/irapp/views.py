@@ -7,10 +7,14 @@ from rest_framework.decorators import api_view
 
 @api_view(['POST'])
 def index(request):
-    my_query=request.data['query']['Querys']
-    people = somethins.get_people(my_query)
+    
+    my_query=request.data['query']
+    print(my_query)
+    people = somethins.get_people(int(my_query))
+    print(people)
     return  JsonResponse(people,safe=False)
-    return  JsonResponse(people,safe=False)
+    # return  JsonResponse(people,safe=False)
+    # return HttpResponse()
 
 
 
